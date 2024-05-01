@@ -1,0 +1,21 @@
+//  Explain how the this keyword changes its value when used inside a nested function within a method.
+
+const myObject = {
+    property: " value",
+    outerMethod: function() {
+        console.log(this.property);  // wprks as expected myObject, logs "Value"
+        
+        const innerMethod = () => {
+            console.log(this.property); // still accesses myObject's 'property' due to arrow function capturing 'this' from outer scoope
+        };
+        innerMethod();
+    },
+};
+
+myObject.outerMethod();
+// This example shows that using an arrow function for the inner method preserves the 'this' context from the outer method
+
+
+
+
+
